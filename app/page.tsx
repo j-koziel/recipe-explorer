@@ -1,4 +1,4 @@
-import { cookies } from "next/headers";
+import getFormData from "@/utils/getRecipeData";
 
 export default async function Index() {
   return (
@@ -6,9 +6,13 @@ export default async function Index() {
       <div className="animate-in flex-1 flex flex-col gap-20 opacity-0 max-w-4xl px-3">
         <h1>Welcome to recipe explorer</h1>
       </div>
-      <form className="animate-in flex flex-col gap-4 items-center w-screen">
+      <form
+        action={getFormData}
+        className="animate-in flex flex-col gap-4 items-center w-screen"
+      >
         <input
           type="text"
+          name="recipe-query"
           placeholder="Pizza? Or maybe some lasagna? Make your pick..."
           className="w-1/2 text-center rounded-md h-7 bg-inherit border"
           autoFocus
