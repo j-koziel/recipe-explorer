@@ -2,12 +2,18 @@
 import { Card, CardHeader, CardBody, Image } from "@nextui-org/react";
 import { motion } from "framer-motion";
 
-export default function RecipeCard({ recipeObj }: { recipeObj: any }) {
+export default function RecipeCard({
+  recipeObj,
+  i,
+}: {
+  recipeObj: any;
+  i: number;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, delay: i }}
     >
       <Card className="py-4">
         <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">

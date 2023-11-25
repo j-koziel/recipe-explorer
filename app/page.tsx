@@ -10,7 +10,7 @@ export default function Index() {
   const [recipeData, setRecipeData] = useState<any[] | []>([]);
 
   return (
-    <div className="flex-1 flex flex-col gap-20 items-center">
+    <div className="flex flex-col gap-20 items-center">
       <div className="animate-in flex-1 flex flex-col gap-20 opacity-0 max-w-4xl px-3">
         <h1>Welcome to recipe explorer</h1>
       </div>
@@ -36,10 +36,10 @@ export default function Index() {
           Search for a recipe
         </button>
       </form>
-      <div className="flex items-center gap-4">
+      <div className="flex items-center justify-center w-full gap-4 m-4">
         {recipeData.map((recipeObj, i) => {
           if (i >= 2) {
-            return <RecipeCard recipeObj={recipeObj} key={i} />;
+            return <RecipeCard recipeObj={recipeObj} i={i / 2} key={i} />;
           } else {
             return null;
           }
