@@ -18,7 +18,7 @@ export function ThemeSwitcher() {
   return (
     <div>
       <Switch
-        defaultSelected={true}
+        defaultSelected={false}
         size="lg"
         color="primary"
         startContent={<Sun />}
