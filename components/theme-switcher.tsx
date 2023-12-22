@@ -25,7 +25,7 @@ export function ThemeSwitcher() {
         endContent={<MoonStar />}
         onChange={(e) => {
           e.preventDefault();
-          theme == "light" ? setTheme("dark") : setTheme("light");
+          theme == "dark" ? setTheme("light") : setTheme("dark");
         }}
       />
     </div>
