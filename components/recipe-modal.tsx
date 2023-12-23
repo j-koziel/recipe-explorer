@@ -9,6 +9,8 @@ import {
   useDisclosure,
 } from "@nextui-org/react";
 import { RecipeCard } from "@/components/recipe-card";
+import { RecipeInstructions } from "@/components/recipe-instructions";
+import { RecipeIngredients } from "@/components/recipe-ingredients";
 
 export function RecipeModal({ recipe }: { recipe: any }) {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -27,26 +29,33 @@ export function RecipeModal({ recipe }: { recipe: any }) {
         isOpen={isOpen}
         onClose={onClose}
         scrollBehavior="inside"
-        size="lg"
+        size="4xl"
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">
+              <ModalHeader className="flex flex-col gap-2 items-center">
                 {recipe.recipe.label}
                 <Image src={recipe.recipe.images.REGULAR.url} />
               </ModalHeader>
               <ModalBody>
-                <h1 className="text-lg font-bold">Instructions</h1>
-                <ol>
-                  {recipe.recipe.instructionLines.map(
-                    (instruction: string, i: number) => (
-                      <li key={i}>
-                        {i + 1}. {instruction}
-                      </li>
-                    )
-                  )}
-                </ol>
+                <div className="flex">
+                  <div className="w-[50%]">
+                    <h2 className="text-lg font-bold">Instructions</h2>
+                    <RecipeInstructions
+                      instructionData={recipe.recipe.instructionLines}
+                      recipeUrl={recipe.recipe.url}
+                    />
+                  </div>
+                  <div className="w-[50%] flex justify-center">
+                    <div>
+                      <h2 className="text-lg font-bold">Ingredients</h2>
+                      <RecipeIngredients
+                        ingredientData={recipe.recipe.ingredientLines}
+                      />
+                    </div>
+                  </div>
+                </div>
               </ModalBody>
               <ModalFooter>
                 <Button color="danger" variant="light" onPress={onClose}>

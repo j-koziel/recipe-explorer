@@ -1,4 +1,5 @@
 import { Card, CardBody, CardHeader, Image } from "@nextui-org/react";
+import { motion } from "framer-motion";
 
 export function RecipeCard({
   recipe,
@@ -8,20 +9,22 @@ export function RecipeCard({
   onPressHandler: any;
 }) {
   return (
-    <Card isPressable onPress={onPressHandler}>
-      <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        <p className="text-tiny uppercase font-bold">Recipe</p>
-        <small className="text-default-500">
-          {recipe.recipe.ingredients.length} Ingredients
-        </small>
-        <h4 className="font-bold text-large">{recipe.recipe.label}</h4>
-      </CardHeader>
-      <CardBody className="overflow-visible py-2">
-        <Image
-          src={recipe.recipe.images.REGULAR.url}
-          alt={recipe.recipe.label}
-        />
-      </CardBody>
-    </Card>
+    <motion.div initial={{ scale: 1 }} whileHover={{ scale: 1.02 }}>
+      <Card isPressable onPress={onPressHandler}>
+        <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+          <p className="text-tiny uppercase font-bold">Recipe</p>
+          <small className="text-default-500">
+            {recipe.recipe.ingredients.length} Ingredients
+          </small>
+          <h4 className="font-bold text-large">{recipe.recipe.label}</h4>
+        </CardHeader>
+        <CardBody className="overflow-visible py-2">
+          <Image
+            src={recipe.recipe.images.REGULAR.url}
+            alt={recipe.recipe.label}
+          />
+        </CardBody>
+      </Card>
+    </motion.div>
   );
 }
