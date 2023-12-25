@@ -27,7 +27,7 @@ export function RecipeSearch({
         onChange={(e) => {
           setRecipeQuery(e.target.value);
         }}
-        className="w-1/2 md:w-1/6"
+        className="w-1/2 md:w-1/4"
       />
       <Button type="submit">Get recipes</Button>
     </form>

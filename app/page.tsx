@@ -8,7 +8,7 @@ export default function Index() {
   const [recipeData, setRecipeData] = useState<any[] | never[]>([]);
 
   return (
-    <div className="">
+    <div className="w-full">
       <RecipeSearch setRecipeData={setRecipeData} />
       <RecipesDisplay recipeData={recipeData} />
     </div>
