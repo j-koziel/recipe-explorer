@@ -29,7 +29,6 @@ export function RecipeSearch({
         }}
         className="w-1/2 md:w-1/4"
       />
-      <Button type="submit">Get recipes</Button>
     </form>
   );
 }
